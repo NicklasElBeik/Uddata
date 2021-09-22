@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Uddata.Models
 {
-    abstract class Person : Subject
+    abstract class BaseClass : Subject
     {
-        public int PersonId { get; set; }
-        public string PersonName { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

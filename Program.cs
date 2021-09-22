@@ -1,6 +1,5 @@
 ﻿using System;
 using Uddata.Models;
-using Uddata.Views;
 using System.Collections.Generic;
 
 namespace Uddata
@@ -9,18 +8,38 @@ namespace Uddata
     {
         static void Main(string[] args)
         {
-            Student student = new Student();
+            Methods methods = new Methods();
             Teacher teacher = new Teacher();
-            Subject subject = new Subject();
-            Methods methods= new Methods();
-            AddStudent addStudent = new AddStudent();
-            Console.WriteLine("Hello World!");
-            //methods.SubjectListMethod();
-            addStudent.GetInput();
+            Student student = new Student();
+            methods.AddSubject();
+            Console.WriteLine("######## Vekommen til Uddata++ ########\n\n");
+
+            Teacher bjarne = new Teacher();
+            bjarne.Id = 1; bjarne.Name = "Bjarne"; bjarne.CoffeeClub = true; bjarne.SubjectName = "Dansk og Engelsk"; 
+            Teacher lars = new Teacher();
+            lars.Id = 2; lars.Name = "Lars"; lars.CoffeeClub = false; lars.SubjectName = "Fysik";
+            teacher.teachers.Add(bjarne);
+            teacher.teachers.Add(lars);
+
+            Student sigurd = new Student();
+            sigurd.Id = 1; sigurd.Name = "Sigurd"; sigurd.SubjectName = "Dansk"; sigurd.Grade = 10; sigurd.Warnings = 1;
+            student.students.Add(sigurd);
+
+            Console.WriteLine("Lærere:\n");
+
+            foreach (var Teacher in teacher.teachers)
+            {
+                Console.WriteLine(Teacher + "\n");
+            }
+
+            Console.WriteLine("\nElever:\n");
+
+            foreach (var Student in student.students)
+            {
+                Console.WriteLine(Student + "\n");
+            }
             
 
-            //student.StudentList.Add(new Student() { PersonId = 1, PersonName = "Lars", SubjectId = 1, SubjectName = "Dansk", Grade = 12 });
-            //Console.WriteLine(student.StudentList);
             Console.ReadKey();
         }
     }

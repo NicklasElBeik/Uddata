@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 namespace Uddata.Models
 {
     public enum SubjectType {Dan, Mat, Eng, Fys}
-    class Subject
+    public class Subject
     {
         public int SubjectId { get; set; }
         public string SubjectName { get; set; }
         public SubjectType Type { get; set; }
+        public List<Subject> subjects = new List<Subject>();
+        public int? Grade { get; set; }
         public override string ToString()
         {
-            return "ID: " + SubjectId + " Subject: " + SubjectName + " Enum: " + Type;
+            return $"Subject ID: {SubjectId}    Subject Name: {SubjectName}\nSubject Type: {Type}        Grade: {Grade}\n\n";
         }
-        public int Grade { get; set; }
     }
 }

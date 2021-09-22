@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace Uddata.Models
 {
-    sealed class Teacher : Person
-    //Made sealed so class cannot be inhertied from.
+    sealed class Teacher : BaseClass
     {
         public bool CoffeeClub { get; set; }
-        public List<Teacher> Teachers { get; set; }
-
-        public List<Subject> Subject = new List<Subject>();
+        public override string ToString()
+        {
+            if (CoffeeClub) return $"Lærer {Name} har ID: {Id} og underviser i {SubjectName}. {Name} er medlem af kaffeklubben";
+            else return $"Lærer {Name} har ID: {Id} og underviser i {SubjectName}. {Name} er ikke medlem af kaffeklubben";
+        }
+        public List<Teacher> teachers = new List<Teacher>();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Uddata.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,18 +9,41 @@ namespace Uddata.Models
 {
     class Methods
     {
-        public void SubjectListMethod()
+        Subject subject = new Subject();
+        public Subject AddSubject()
         {
-            List<Subject> subjects = new List<Subject>();
-            subjects.Add(new Subject() { SubjectName = "Dansk", SubjectId = 1, Type = SubjectType.Dan });
-            subjects.Add(new Subject() { SubjectName = "MateMatik", SubjectId = 2, Type = SubjectType.Mat });
-            subjects.Add(new Subject() { SubjectName = "Engelsk", SubjectId = 3, Type = SubjectType.Eng });
-            subjects.Add(new Subject() { SubjectName = "Fysik", SubjectId = 4, Type = SubjectType.Fys });
-
-            foreach (Subject subject in subjects)
+            Subject d = new Subject()
             {
-                Console.WriteLine(subject);
-            }
+                SubjectId = 1,
+                SubjectName = "Dansk",
+                Type = SubjectType.Dan
+            };
+            subject.subjects.Add(d);       
+
+            Subject m = new Subject()
+            {
+                SubjectId = 2,
+                SubjectName = "Matematik",
+                Type = SubjectType.Mat
+            };
+
+            subject.subjects.Add(m);
+            Subject e = new Subject()
+            {
+                SubjectId = 3,
+                SubjectName = "Engelsk",
+                Type = SubjectType.Eng
+            };
+            subject.subjects.Add(e);
+
+            Subject f = new Subject()
+            {
+                SubjectId = 4,
+                SubjectName = "Fysik",
+                Type = SubjectType.Fys
+            };
+            subject.subjects.Add(f);
+            return subject;
         }
     }
 }
